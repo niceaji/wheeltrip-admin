@@ -1,0 +1,24 @@
+<%
+var page = "login";
+%>
+<% include inc/header %>
+
+
+    <form class="form-signin login" role="form" method="post">
+        <h2 class="form-signin-heading">
+            <img src="http://i.imgur.com/6ge4pOO.png" width="50" alt=""/>
+            Admin
+        </h2>
+        <input type="text" name="userid" class="form-control" placeholder="아이디" required autofocus>
+        <input type="password" name="password" class="form-control" placeholder="비밀번호" required>
+        <label class="checkbox">
+            <input type="checkbox" value="remember"> 기억하기
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+            <span class=""></span>
+            들어가기
+        </button>
+    </form>
+
+
+<% include inc/footer %>
