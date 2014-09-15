@@ -1,9 +1,10 @@
 'use strict';
 
 
-
 module.exports = {
     login: require('./login'),
-    places: require('./places')
+    api: {
+        places: require('./api/places')
+    }
 };
 

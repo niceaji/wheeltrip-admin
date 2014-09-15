@@ -22,11 +22,11 @@ function defineRouter() {
         .get('/', routes.login.index)
         .post('/', routes.login.check)
 
-        .get('/api/places', routes.places.index)
-        .get('/api/places/:pid', routes.places.show)
-        .post('/api/places', routes.places.create)
-        .put('/api/places/:pid', routes.places.update)
-        .delete('/api/places/:pid', routes.places.destroy)
+        .get('/api/places', routes.api.places.index)
+        .get('/api/places/:pid', routes.api.places.show)
+        .post('/api/places', routes.api.places.create)
+        .put('/api/places/:pid', routes.api.places.update)
+        .delete('/api/places/:pid', routes.api.places.destroy)
 
 //        .get('/places', routes.places.index)
 

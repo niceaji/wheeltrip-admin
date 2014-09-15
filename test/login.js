@@ -1,4 +1,4 @@
 'use strict';
 
-var lib = require('../common/lib');
+var lib = require('./lib');
 

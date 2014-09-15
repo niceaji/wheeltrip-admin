@@ -1,7 +1,7 @@
 'use strict';
 
 var
-    config = require('../config'),
+    config = require('../../config/index'),
     debug = require('debug')('wheeltrip:places');
 
 function index(req, res) {
