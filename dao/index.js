@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-    places: require('./places')
+    places: require('./places'),
+    admins: require('./admins')
 };

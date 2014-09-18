@@ -21,7 +21,7 @@ function defineRouter() {
 
     router
         .get('/', routes.index)
-//        .post('/', routes.login.check)
+        .post('/login/check', routes.checkLogin)
 
         .get('/api/places', routes.api.places.index)
         .get('/api/places/:pid', routes.api.places.show)

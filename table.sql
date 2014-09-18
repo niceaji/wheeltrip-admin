@@ -17,9 +17,12 @@ CREATE TABLE `places` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+
 CREATE TABLE `admins` (
   `userid` varchar(200) NOT NULL DEFAULT '',
   `password` varchar(200) NOT NULL DEFAULT '',
   `regdttm` datetime NOT NULL DEFAULT NOW(),
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into admins (userid, passwd) values ('test', md5('test'))

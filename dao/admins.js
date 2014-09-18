@@ -7,12 +7,12 @@ var mysqlMgr = require('../common/mysql-manager'),
     _ = require('lodash');
 
 
-function selectById(id, callback) {
-    var sql = 'select * from admins where userid=?';
-    mysqlMgr.query(sql, [id], callback);
+function exists(userid, password, callback) {
+    var sql = 'select count(userid) as count from admins where userid=? and passwd=md5(?)';
+    mysqlMgr.query(sql, [userid, password], callback);
 }
 
 
 module.exports = {
-    selectById: selectById
+    exists: exists
 };
