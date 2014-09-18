@@ -1,11 +1,12 @@
+'use strict';
 
-app.factory('Places', function ($resource) {
+app.factory('Places',
+    function ($resource, $window) {
+        'use strict';
 
-    'use strict';
+        return $resource($window.pageConfig.urlPrefix + '/api/places/:id', {id:'@id'},
+            {
+                'get': {method: 'GET', isArray: true}
+            });
 
-    return $resource('/api/places/:id', {},
-        {
-            'get': {method: 'GET', isArray: true}
-        });
-
-});
+    });

@@ -18,9 +18,10 @@ function defineRouter() {
     var
         router = express.Router();
 
+
     router
-        .get('/', routes.login.index)
-        .post('/', routes.login.check)
+        .get('/', routes.index)
+//        .post('/', routes.login.check)
 
         .get('/api/places', routes.api.places.index)
         .get('/api/places/:pid', routes.api.places.show)
@@ -28,7 +29,7 @@ function defineRouter() {
         .put('/api/places/:pid', routes.api.places.update)
         .delete('/api/places/:pid', routes.api.places.destroy)
 
-//        .get('/places', routes.places.index)
+//        .get('/places', routes.placesIndex)
 
     return router;
 }
@@ -40,7 +41,7 @@ function start() {
 }
 
 app.use(require('body-parser').json({}));
-app.use(require('body-parser').urlencoded({}));
+//app.use(require('body-parser').urlencoded({}));
 app.use(express.static('public'));
 app.use(config.urlPrefix, defineRouter());
 

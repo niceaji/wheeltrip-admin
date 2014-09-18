@@ -1,0 +1,34 @@
+<div class="table-wrap">
+    <button type="button" class="btn btn-success add"><span class="glyphicon glyphicon-plus"></span></button>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>이름</th>
+            <th>위치</th>
+            <th>주소</th>
+            <th class="icon"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="place in places">
+            <td>{{ place.id }}</td>
+            <td>{{ place.name }}</td>
+            <td></td>
+            <td>{{ place.address }}</td>
+            <td>
+                <button type="button" class="btn btn-xs" ng-click="edit(place)">
+                    <span class="glyphicon glyphicon-pencil"></span></button>
+                <button type="button" class="btn btn-danger btn-xs" ng-click="delete(place)">
+                    <span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="page-nav">
+        <a class="btn" ng-click="prev()"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        {{ page }}
+        <a class="btn" ng-click="next()"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+</div>

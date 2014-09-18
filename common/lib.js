@@ -8,15 +8,20 @@ function checkLogin(userid, password) {
         adminList = require('../.admin.json'),
         user = _.where(adminList, {id: userid});
 
-    if(user.length > 0 && user[0].password === password) {
+    if (user.length > 0 && user[0].password === password) {
         return true;
     }
-    else{
+    else {
         return false;
     }
 }
 
+function safeMerge(model, src) {
+    return _.pick(_.merge({}, model, src), _.keys(model));
+}
+
 module.exports = {
 
+    safeMerge: safeMerge,
     checkLogin: checkLogin
 };

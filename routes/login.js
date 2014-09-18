@@ -5,16 +5,11 @@ var
     lib = require('../common/lib'),
     debug = require('debug')('wheeltrip:login');
 
-function index(req, res) {
-
-    res.render('login');
-}
 function check(req, res) {
 
     var
         userid = req.param('userid'),
         password = req.param('password');
-
 
     if (lib.checkLogin(userid, password)) {
         debug('login success:', userid);
@@ -27,6 +22,5 @@ function check(req, res) {
 }
 
 module.exports = {
-    check: check,
-    index: index
+    check: check
 };
