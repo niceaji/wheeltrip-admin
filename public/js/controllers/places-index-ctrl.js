@@ -14,6 +14,9 @@ app.controller('PlacesIndexCtrl',
         $scope.edit = function (place) {
             $location.path('places/edit/' + place.id);
         };
+        $scope.add= function () {
+            $location.path('places/new');
+        };
         $scope.delete = function (place) {
 
             if (!confirm('정말 삭제하시겠습니까?')) {

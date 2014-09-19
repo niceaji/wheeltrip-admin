@@ -1,13 +1,11 @@
 'use strict';
 
-app.controller('PlacesEditCtrl',
+app.controller('PlacesNewCtrl',
     function ($scope, $location, $routeParams, $window, Places) {
 
         $scope.fields = $window.schema.place;
 
-        Places.get({id: $routeParams.pid}, function (place) {
-            $scope.place = place[0];
-        });
+        $scope.place = {};
 
         $scope.formOptions = {
 //            uniqueFormId: null,
@@ -20,15 +18,15 @@ app.controller('PlacesEditCtrl',
 
         $scope.onSubmit = function () {
             console.log('onSubmit:', $scope.place);
-            Places.update({id: $scope.place.id}, $scope.place, function (rows) {
+            Places.save( $scope.place, function (rows) {
                 if(rows.affectedRows===1) {
-
-                    $window.toastr.success('수정 했습니다');
-
+                    $window.toastr.success('추가 했습니다');
                     console.log('success!');
+                    $location.path('/places/edit/'+ rows.insertId).replace();
                 }
             });
         };
+
 
 
     });

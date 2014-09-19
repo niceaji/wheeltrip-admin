@@ -6,7 +6,7 @@ var
     debug = require('debug')('wheeltrip:places');
 
 function index(req, res) {
-    dao.places.selectAll( function (err, rows) {
+    dao.places.selectAll(function (err, rows) {
         res.json(rows);
     });
 }
@@ -17,7 +17,7 @@ function show(req, res) {
     });
 }
 function create(req, res) {
-    dao.places.create(function (err, rows) {
+    dao.places.create(req.body, function (err, rows) {
         if (err) {
             throw err;
         }

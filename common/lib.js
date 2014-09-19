@@ -21,9 +21,17 @@ function checkLogin(userid, password) {
 function safeMerge(model, src) {
     return _.pick(_.merge({}, model, src), _.keys(model));
 }
+function schema2model(schema) {
+    var model={};
+    _.forEach(_.pluck(schema, 'key'), function (item) {
+        model[item] = ''
+    });
+    return model;
+}
 
 module.exports = {
 
     safeMerge: safeMerge,
+    schema2model: schema2model,
     checkLogin: checkLogin
 };

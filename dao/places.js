@@ -4,25 +4,10 @@
 
 var mysqlMgr = require('../common/mysql-manager'),
     lib = require('../common/lib'),
-    _ = require('lodash');
+    _ = require('lodash'),
+    schema = require('../public/schema/place'),
+    model = lib.schema2model(schema);
 
-
-
-var model = {
-    name: '',
-    latitude: '',
-    longitude: '',
-    image_0: '',
-    image_1: '',
-    image_2: '',
-    image_3: '',
-    image_4: '',
-    description: '',
-    homepage: '',
-    category: '',
-    area: '',
-    regdttm: new Date()
-};
 
 function create(place, callback) {
     var data = lib.safeMerge(model, place),
