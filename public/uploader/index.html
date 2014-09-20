@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>이미지업로드</title>
+    <link rel="stylesheet" href="/bootstrap-3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="js/app.css"/>
+</head>
+<body>
+
+<span class="btn btn-success fileinput-button">
+    <i class="glyphicon glyphicon-plus"></i>
+    <span>이미지 파일 선택</span>
+    <!-- The file input field used as target for the file upload widget -->
+    <input id="fileupload" type="file" name="files[]" multiple>
+</span>
+<!-- The global progress bar -->
+<div id="progress" class="progress">
+    <div class="progress-bar progress-bar-success"></div>
+</div>
+<!-- The container for the uploaded files -->
+<div id="files" class="files"></div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.ui.widget.js"></script>
+<script src="js/jquery.iframe-transport.js"></script>
+<script src="js/jquery.fileupload.js"></script>
+<script src="/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
