@@ -3,7 +3,5 @@
 app.controller('LoginCtrl',
     function ($scope, $location, $window) {
 
-        $scope.back=function() {
-            $window.history.back();
-        };
+        $scope.$parent.nowMenu = 'login';
     });

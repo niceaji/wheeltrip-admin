@@ -1,5 +1,5 @@
 <!--http://getbootstrap.com/examples/navbar/-->
-<div class="navbar navbar-default" role="navigation">
+<div class="navbar navbar-default" role="navigation" ng-show="nowMenu!='login'">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,7 +12,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="1active"><a href="#places">장소</a></li>
+                <li ng-class="{active:nowMenu==='places'}"><a href="#places">장소</a></li>
                 <li ><a href="#comments">댓글</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

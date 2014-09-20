@@ -1,3 +1,6 @@
+a {
+    cursor: pointer;
+}
 body.login {
     background-color: #eee;
 }
@@ -13,6 +16,7 @@ body.map {
 
 .navbar {
     margin-bottom: 20px;
+    /*display: none;*/
 }
 
 .view {
@@ -46,17 +50,17 @@ body.map {
     /*border: 1px solid #e7e7e7;*/
     padding: 30px;
     border-radius: 5px;
-    margin-left: 40px;
-    /*margin: 0 auto;*/
+    /*margin-left: 40px;*/
+    margin: 0 auto;
     /*position: relative;*/
 }
 
 .edit-wrap .etc {
-    margin-left: 410px;
+    /*margin-left: 410px;*/
     /*top: 0;*/
     /*position: absolute;*/
-    position: fixed;
-    bottom: 10px;
+    /*position: fixed;*/
+    /*bottom: 40px;*/
 
 }
 

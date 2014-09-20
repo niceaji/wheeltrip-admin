@@ -1,8 +1,8 @@
-'use strict';
-
 app.controller('PlacesEditCtrl',
     function ($scope, $location, $routeParams, $window, Places) {
+        'use strict';
 
+        $scope.$parent.nowMenu = 'places';
         $scope.fields = $window.schema.place;
 
         Places.get({id: $routeParams.pid}, function (place) {
@@ -10,7 +10,7 @@ app.controller('PlacesEditCtrl',
         });
 
         $scope.formOptions = {
-//            uniqueFormId: null,
+            uniqueFormId: 'editForm',
 //            submitCopy: 'Submit',
 //            hideSubmit: false,
 //            submitButtonTemplate: null,
@@ -30,5 +30,11 @@ app.controller('PlacesEditCtrl',
             });
         };
 
-
+        // daum-map/map.html 에서 호출
+        $window.callbackMapWindow = function (lat, lng, content) {
+            $scope.place.latitude = lat;
+            $scope.place.longitude =  lng;
+            $scope.place.address = content;
+            $scope.$apply();
+        };
     });

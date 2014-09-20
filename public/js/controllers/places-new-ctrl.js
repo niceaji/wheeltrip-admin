@@ -3,6 +3,8 @@
 app.controller('PlacesNewCtrl',
     function ($scope, $location, $routeParams, $window, Places) {
 
+        $scope.$parent.nowMenu = 'places';
+
         $scope.fields = $window.schema.place;
 
         $scope.place = {};

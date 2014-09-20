@@ -3,6 +3,8 @@
 app.controller('PlacesIndexCtrl',
     function ($scope, $location, Places) {
 
+        $scope.$parent.nowMenu = 'places';
+
         //TODO. paging
         var listSize = 100;
         $scope.page = 1;

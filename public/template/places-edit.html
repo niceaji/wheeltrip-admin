@@ -1,5 +1,4 @@
 <div class="edit-wrap">
-
     <div class="form">
         <formly-form result="place" fields="fields" options="formOptions" ng-submit="onSubmit()">
             <div class="etc">
@@ -7,9 +6,9 @@
                 <button type="submit" class="btn btn-primary ">
                     <span class="glyphicon glyphicon-ok"></span> 저장
                 </button>
-                <button type="button" class="btn btn-default" ng-click="back()">
-                    <span class="glyphicon glyphicon-step-backward"></span> 뒤로
-                </button>
+                <a ng-click="back()">
+                    뒤로
+                </a>
             </div>
         </formly-form>
     </div>
