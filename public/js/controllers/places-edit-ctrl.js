@@ -1,5 +1,5 @@
 app.controller('PlacesEditCtrl',
-    function ($scope, $location, $routeParams, $window, Places) {
+    function ($scope, $location, $routeParams, $window, $anchorScroll, Places) {
         'use strict';
 
         $scope.$parent.nowMenu = 'places';
@@ -7,6 +7,7 @@ app.controller('PlacesEditCtrl',
 
         Places.get({id: $routeParams.pid}, function (place) {
             $scope.place = place[0];
+
         });
 
         $scope.formOptions = {
@@ -18,10 +19,16 @@ app.controller('PlacesEditCtrl',
             submitCopy: '저장'
         };
 
+        $scope.countUploaedImage = function() {
+
+            return 1;
+
+        };
+
         $scope.onSubmit = function () {
             console.log('onSubmit:', $scope.place);
             Places.update({id: $scope.place.id}, $scope.place, function (rows) {
-                if(rows.affectedRows===1) {
+                if (rows.affectedRows === 1) {
 
                     $window.toastr.success('수정 했습니다');
 
@@ -30,11 +37,8 @@ app.controller('PlacesEditCtrl',
             });
         };
 
-        // daum-map/map.html 에서 호출
-        $window.callbackMapWindow = function (lat, lng, content) {
-            $scope.place.latitude = lat;
-            $scope.place.longitude =  lng;
-            $scope.place.address = content;
-            $scope.$apply();
-        };
+
+
+
+        $anchorScroll();
     });

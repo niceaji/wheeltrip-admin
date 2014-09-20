@@ -12,7 +12,7 @@
         },
         {
             key: 'address',
-//            type: 'address-map',
+//            type: 'text',
             template: '<address-map></address-map>',
             label: '주소'
         },
@@ -32,28 +32,28 @@
         },
         {
             key: 'image_0',
-            type: 'text',
-            hide: true
+            template: '<upload-btn></upload-btn>',
+            label: '이미지1'
         },
         {
             key: 'image_1',
-            type: 'text',
-            hide: true
+            template: '<upload-btn></upload-btn>',
+            label: '이미지2'
         },
         {
             key: 'image_2',
-            type: 'text',
-            hide: true
+            template: '<upload-btn></upload-btn>',
+            label: '이미지3'
         },
         {
             key: 'image_3',
-            type: 'text',
-            hide: true
+            template: '<upload-btn></upload-btn>',
+            label: '이미지4'
         },
         {
             key: 'image_4',
-            type: 'text',
-            hide: true
+            template: '<upload-btn></upload-btn>',
+            label: '이미지5'
         },
         {
             key: 'description',

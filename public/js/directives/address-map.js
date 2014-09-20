@@ -10,6 +10,13 @@ app.directive('addressMap', function ($window) {
                 $window.open('/daum-map/map.html', '', 'width=1000,height=700');
             };
 
+            $window.callbackMapWindow = function (lat, lng, content) {
+                scope.result.latitude = lat;
+                scope.result.longitude = lng;
+                scope.result.address = content;
+                scope.$apply();
+            };
+
         }
     }
 });
