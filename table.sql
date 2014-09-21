@@ -1,3 +1,22 @@
+# Dump of table admins
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `admins`;
+
+CREATE TABLE `admins` (
+  `userid` varchar(200) NOT NULL DEFAULT '',
+  `passwd` varchar(200) NOT NULL DEFAULT '',
+  `regdttm` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table places
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `places`;
+
 CREATE TABLE `places` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL DEFAULT '',
@@ -12,17 +31,10 @@ CREATE TABLE `places` (
   `homepage` varchar(200) DEFAULT NULL,
   `category` varchar(200) DEFAULT NULL,
   `area` varchar(200) DEFAULT NULL,
-  `regdttm` datetime NOT NULL DEFAULT NOW(),
+  `address` varchar(200) DEFAULT NULL,
+  `regdttm` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
-CREATE TABLE `admins` (
-  `userid` varchar(200) NOT NULL DEFAULT '',
-  `password` varchar(200) NOT NULL DEFAULT '',
-  `regdttm` datetime NOT NULL DEFAULT NOW(),
-  PRIMARY KEY (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 insert into admins (userid, passwd) values ('test', md5('test'))

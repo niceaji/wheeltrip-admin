@@ -34,7 +34,7 @@ function defineRouter() {
         //login index
         .get('/', routes.index)
         .get('/logout', routes.logout)
-        .post('/', routes.checkLogin)
+        .post('/login', routes.checkLogin)
 
 
         .get('/api/places', auth, routes.api.places.index)
