@@ -12,7 +12,7 @@ function index(req, res) {
         pageConfig: {
             urlPrefix: config.urlPrefix,
             path: req.path,
-            isLogin: !!req.session.userid,
+            isLogged: lib.isLogged(req.session),
             userid: req.session.userid
         }
     });

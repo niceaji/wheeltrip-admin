@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('PlacesIndexCtrl',
-    function ($scope, $location, Places) {
+    function ($scope, $location, $window, Places) {
 
         $scope.$parent.nowMenu = 'places';
         $scope.$parent.hasNavbar = true;
@@ -33,6 +33,11 @@ app.controller('PlacesIndexCtrl',
                 });
             });
 
+        };
+        $scope.popupMap = function(place) {
+            var lat = place.latitude || '',
+                lng = place.longitude || '';
+            $window.open('/daum-map/map.html#?lat='+lat+'&lng='+lng, '', 'width=1000,height=700');
         };
     })
 

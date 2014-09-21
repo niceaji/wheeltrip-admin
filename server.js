@@ -4,6 +4,7 @@ var express = require('express'),
     path = require('path'),
     routes = require('./routes'),
     config = require('./config'),
+    lib = require('./common/lib'),
     debug = require('debug')('wheeltrip:server'),
     bodyParser = require('body-parser'),
     expressSession = require('express-session'),
@@ -16,14 +17,7 @@ app.engine('.ejs', require('ejs').__express);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-function auth(req, res, next) {
 
-    if(!req.session.userid) {
-        res.redirect(config.urlPrefix);
-        return;
-    }
-    next();
-}
 
 function defineRouter() {
 
@@ -54,6 +48,14 @@ function start() {
 function session() {
     app.use(cookieParser());
     app.use(expressSession({secret:config.appName}));
+}
+function auth(req, res, next) {
+
+    if(!lib.isLogged(req.session)) {
+        res.redirect(config.urlPrefix);
+        return;
+    }
+    next();
 }
 
 session();

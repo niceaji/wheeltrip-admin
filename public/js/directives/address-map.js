@@ -7,7 +7,9 @@ app.directive('addressMap', function ($window) {
         link: function (scope, element, attr) {
 
             scope.popupMap = function () {
-                $window.open('/daum-map/map.html', '', 'width=1000,height=700');
+                var lat = scope.result.latitude || '',
+                    lng = scope.result.longitude || '';
+                $window.open('/daum-map/map.html#?lat='+lat+'&lng='+lng, '', 'width=1000,height=700');
             };
 
             $window.callbackMapWindow = function (lat, lng, content) {

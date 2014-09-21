@@ -7,6 +7,8 @@
             <th>ID</th>
             <th>장소명</th>
             <th>위치</th>
+            <th>카테고리</th>
+            <th>지역</th>
             <th>주소</th>
             <th class="icon"></th>
         </tr>
@@ -14,12 +16,14 @@
         <tbody>
         <tr ng-repeat="place in places">
             <td>{{ place.id }}</td>
-            <td>{{ place.name }}</td>
-            <td></td>
+            <td><a ng-click="edit(place)">{{ place.name }}</a></td>
+            <td><a class="glyphicon glyphicon-map-marker" ng-click="popupMap(place)"></a></td>
+            <td>{{ place.category }}</td>
+            <td>{{ place.area }}</td>
             <td>{{ place.address }}</td>
             <td>
-                <button type="button" class="btn btn-xs btn-default" title="수정" ng-click="edit(place)">
-                    <span class="glyphicon glyphicon-pencil"></span></button>
+                <!--<button type="button" class="btn btn-xs btn-default" title="수정" ng-click="edit(place)">-->
+                    <!--<span class="glyphicon glyphicon-pencil"></span></button>-->
                 <button type="button" class="btn btn-danger btn-xs" title="삭제" ng-click="delete(place)">
                     <span class="glyphicon glyphicon-trash"></span></button>
             </td>

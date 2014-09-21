@@ -1,22 +1,9 @@
 'use strict';
 
 var
-    _ = require('lodash');
+    _ = require('lodash'),
+    config = require('../config');
 
-function checkLogin(userid, password) {
-    //TODO. db에서 체크하세요~
-
-//    var result = dao.exists(userid, password);
-
-    console.log(result)
-
-    if (true) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 
 function safeMerge(model, src) {
     return _.pick(_.merge({}, model, src), _.keys(model));
@@ -28,10 +15,24 @@ function schema2model(schema) {
     });
     return model;
 }
+function isLogged(session) {
+
+    if(config.checkSession) {
+        if(session.userid) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        return true;
+    }
+}
 
 module.exports = {
 
     safeMerge: safeMerge,
     schema2model: schema2model,
-    checkLogin: checkLogin
+    isLogged: isLogged
 };

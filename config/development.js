@@ -2,6 +2,6 @@
 
 module.exports = {
 
-
+    checkSession: false
 
 };

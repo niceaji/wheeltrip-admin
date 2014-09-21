@@ -1,5 +1,3 @@
-# Dump of table admins
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `admins`;
 
@@ -11,9 +9,6 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
-# Dump of table places
-# ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `places`;
 
@@ -37,4 +32,9 @@ CREATE TABLE `places` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-insert into admins (userid, passwd) values ('test', md5('test'))
+INSERT INTO `places` (`id`, `name`, `latitude`, `longitude`, `image_0`, `image_1`, `image_2`, `image_3`, `image_4`, `description`, `homepage`, `category`, `area`, `address`, `regdttm`)
+VALUES
+	(1,'성산일출봉','33.45006654566682','126.93684382623414','http://wheeltrip.net/images/1.jpeg','','','','','','','관광지','제주','제주특별자치도 서귀포시 성산읍','2014-09-21 16:40:39');
+
+insert into admins (userid, passwd) values ('test', md5('test'));
+
