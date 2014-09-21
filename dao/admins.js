@@ -4,11 +4,13 @@
 
 var mysqlMgr = require('../common/mysql-manager'),
     lib = require('../common/lib'),
+    debug = require('debug')('wheeladmin:dao:admins'),
     _ = require('lodash');
 
 
 function exists(userid, password, callback) {
     var sql = 'select count(userid) as count from admins where userid=? and passwd=md5(?)';
+    debug(sql);
     mysqlMgr.query(sql, [userid, password], callback);
 }
 

@@ -4,7 +4,7 @@ var
     config = require('../config'),
     lib = require('../common/lib'),
     _ = require('lodash'),
-    debug = require('debug')('wheeltrip:route:index');
+    debug = require('debug')('wheeladmin:route:index');
 
 
 function index(req, res) {
@@ -41,6 +41,7 @@ function checkLogin(req, res) {
             res.redirect(config.defaultStartUrl);
         }
         else {
+            debug('login error: userid:', userid, ' password:', password);
             res.redirect(config.urlPrefix);
         }
     });

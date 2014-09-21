@@ -1,7 +1,7 @@
 'use strict';
 
 var
-    debug = require('debug')('wheeltrip:config'),
+    debug = require('debug')('wheeladmin:config'),
     config = '',
     _ = require('lodash');
 

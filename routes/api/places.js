@@ -3,7 +3,7 @@
 var
     config = require('../../config/index'),
     dao = require('../../dao'),
-    debug = require('debug')('wheeltrip:places');
+    debug = require('debug')('wheeladmin:places');
 
 function index(req, res) {
     dao.places.selectAll(function (err, rows) {
