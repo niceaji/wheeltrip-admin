@@ -13,13 +13,19 @@ function getPool() {
     if (!pool) {
         debug('create mysql connection pool:', poolConfig);
         pool = mysql.createPool(poolConfig);
+        pool.on('connection', function (connection) {
+            debug('connection success!');
+        })
     }
     return pool;
 }
 
 function query(sql, values, callback) {
     if (callback) {
-        return getPool().query(sql, values, function () {
+        return getPool().query(sql, values, function (err) {
+            if (err) {
+                debug('err:', err);
+            }
             debug('query:', this.sql);
             return callback && callback.apply(this, arguments);
         });

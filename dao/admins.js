@@ -10,7 +10,6 @@ var mysqlMgr = require('../common/mysql-manager'),
 
 function exists(userid, password, callback) {
     var sql = 'select count(userid) as count from admins where userid=? and passwd=md5(?)';
-    debug(sql);
     mysqlMgr.query(sql, [userid, password], callback);
 }
 
