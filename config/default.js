@@ -2,6 +2,7 @@
 
 module.exports = {
 
+    env: 'default',
     appName: 'wheeltrip-admin',
     urlPrefix: '/admin',
     defaultStartUrl: '/admin/#/places',

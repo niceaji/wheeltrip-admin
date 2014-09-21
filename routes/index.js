@@ -13,7 +13,8 @@ function index(req, res) {
             urlPrefix: config.urlPrefix,
             path: req.path,
             isLogged: lib.isLogged(req.session),
-            userid: req.session.userid
+            userid: req.session.userid,
+            env: config.env
         }
     });
 }
