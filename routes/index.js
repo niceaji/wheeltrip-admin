@@ -9,11 +9,18 @@ var
 
 function index(req, res) {
     res.render('main', {
-        pageConfig : {
+        pageConfig: {
             urlPrefix: config.urlPrefix,
-            path: req.path
+            path: req.path,
+            isLogin: !!req.session.userid,
+            userid: req.session.userid
         }
     });
+}
+function logout(req, res) {
+
+    req.session.userid = '';
+    res.redirect(config.urlPrefix);
 }
 function checkLogin(req, res) {
 
@@ -22,32 +29,30 @@ function checkLogin(req, res) {
         password = req.param('password'),
         adminDao = require('../dao/admins');
 
-    if(!userid || !password){
-        res.json({code:403});
+    if (!userid || !password) {
+        res.redirect(config.urlPrefix);
     }
 
     adminDao.exists(userid, password, function (err, rows) {
 
-        if (!err && rows[0].count===1) {
+        if (!err && rows[0].count === 1) {
             debug('login success:', userid);
-            res.json({code:200});
+            req.session.userid = userid;
+            res.redirect(config.defaultStartUrl);
         }
         else {
-            res.json({code:401});
+            res.redirect(config.urlPrefix);
         }
     });
-
-
-
 }
 
 module.exports = {
     index: index,
+    logout: logout,
     checkLogin: checkLogin,
 
     api: {
         places: require('./api/places')
     }
-
 };
 

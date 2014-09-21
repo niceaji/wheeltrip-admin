@@ -22,7 +22,10 @@
 
 <!-- angular -->
 <script src="/js/config/app.js"></script>
-<script src="/js/config/router.js"></script>
+<script src="/js/config/router-login.js"></script>
+<%if(pageConfig.isLogin){%>
+<script src="/js/config/router-menu.js"></script>
+<%}%>
 
 <script src="/js/directives/address-map.js"></script>
 <script src="/js/directives/upload-btn.js"></script>

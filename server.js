@@ -5,6 +5,9 @@ var express = require('express'),
     routes = require('./routes'),
     config = require('./config'),
     debug = require('debug')('wheeltrip:server'),
+    bodyParser = require('body-parser'),
+    expressSession = require('express-session'),
+    cookieParser = require('cookie-parser'),
     app = express(),
 
     port = process.env.PORT || 3333;
@@ -13,23 +16,32 @@ app.engine('.ejs', require('ejs').__express);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+function auth(req, res, next) {
+
+    if(!req.session.userid) {
+        res.redirect(config.urlPrefix);
+        return;
+    }
+    next();
+}
+
 function defineRouter() {
 
     var
         router = express.Router();
 
-
     router
+        //login index
         .get('/', routes.index)
-        .post('/login/check', routes.checkLogin)
+        .get('/logout', routes.logout)
+        .post('/', routes.checkLogin)
 
-        .get('/api/places', routes.api.places.index)
-        .get('/api/places/:pid', routes.api.places.show)
-        .post('/api/places', routes.api.places.create)
-        .put('/api/places/:pid', routes.api.places.update)
-        .delete('/api/places/:pid', routes.api.places.destroy)
 
-//        .get('/places', routes.placesIndex)
+        .get('/api/places', auth, routes.api.places.index)
+        .get('/api/places/:pid', auth, routes.api.places.show)
+        .post('/api/places', auth, routes.api.places.create)
+        .put('/api/places/:pid', auth, routes.api.places.update)
+        .delete('/api/places/:pid', auth, routes.api.places.destroy)
 
     return router;
 }
@@ -39,10 +51,16 @@ function start() {
         debug('Listening on port %d', port);
     });
 }
+function session() {
+    app.use(cookieParser());
+    app.use(expressSession({secret:config.appName}));
+}
 
-app.use(require('body-parser').json({}));
-//app.use(require('body-parser').urlencoded({}));
+session();
+app.use(bodyParser.json({}));
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('public'));
 app.use(config.urlPrefix, defineRouter());
+
 
 start();

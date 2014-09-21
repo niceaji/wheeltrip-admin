@@ -3,6 +3,8 @@ app.controller('PlacesEditCtrl',
         'use strict';
 
         $scope.$parent.nowMenu = 'places';
+        $scope.$parent.hasNavbar = true;
+
         $scope.fields = $window.schema.place;
 
         Places.get({id: $routeParams.pid}, function (place) {

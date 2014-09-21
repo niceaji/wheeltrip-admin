@@ -1,10 +1,27 @@
+body {
+   padding-top: 50px;
+}
 a {
     cursor: pointer;
 }
-body.login {
-    background-color: #eee;
-}
 
+.coverbg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*background: #333 url(http://i.imgur.com/beEZ0Bf.jpg) center center no-repeat;*/
+    background: #333 url(http://i.imgur.com/NRJKBPt.jpg) center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+.container.login {
+    position: absolute;
+    color:#fff;
+}
+.container.login h2{
+    font-weight: bold;
+}
 body.map {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -16,7 +33,7 @@ body.map {
 
 .navbar {
     margin-bottom: 20px;
-    /*display: none;*/
+    display: none;
 }
 
 .view {
@@ -63,7 +80,6 @@ body.map {
     /*bottom: 40px;*/
 
 }
-
 
 /* login */
 .form-signin {

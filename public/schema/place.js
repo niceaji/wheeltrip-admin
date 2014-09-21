@@ -63,17 +63,104 @@
         {
             key: 'homepage',
             type: 'text',
-            label: '홈페이지'
+            label: '홈페이지',
+            placeholder: 'http://'
         },
         {
             key: 'category',
-            type: 'text',
-            label: '카테고리'
+            type: 'select',
+            label: '카테고리',
+            required: true,
+            options: [
+                {
+                    name: '휠체어',
+                    value: '휠체어'
+                },
+                {
+                    name: '충전',
+                    value: '충전'
+                },
+                {
+                    name: '관광지',
+                    value: '관광지'
+                },
+                {
+                    name: '화장실',
+                    value: '화장실'
+                },
+                {
+                    name: '식당',
+                    value: '식당'
+                },
+                {
+                    name: '숙박',
+                    value: '숙박'
+                },
+                {
+                    name: '병원',
+                    value: '병원'
+                },
+                {
+                    name: '복지',
+                    value: '복지'
+                }
+            ]
         },
         {
             key: 'area',
-            type: 'text',
-            label: '지역'
+            type: 'select',
+            label: '지역',
+            required: true,
+            options: [
+                {
+                    name: '제주',
+                    value: '제주'
+                },
+                {
+                    name: '서울',
+                    value: '서울'
+                },
+                {
+                    name: '부산',
+                    value: '부산'
+                },
+                {
+                    name: '경기',
+                    value: '경기'
+                },
+                {
+                    name: '강원',
+                    value: '강원'
+                },
+                {
+                    name: '충청',
+                    value: '충청'
+                },
+                {
+                    name: '전라',
+                    value: '전라'
+                },
+                {
+                    name: '경상',
+                    value: '경상'
+                },
+                {
+                    name: '인천',
+                    value: '인천'
+                },
+                {
+                    name: '대전',
+                    value: '대전'
+                },
+                {
+                    name: '대구',
+                    value: '대구'
+                },
+                {
+                    name: '울산',
+                    value: '울산'
+                }
+            ]
         }
     ];
 
