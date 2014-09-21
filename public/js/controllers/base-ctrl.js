@@ -6,7 +6,7 @@ app.controller('BaseCtrl',
         $scope.nowMenu = '';
         $scope.hasNavbar = false;
 
-        $scope.config = $window.config;
+        $scope.pageConfig = $window.pageConfig;
 
         $scope.back=function() {
             $window.history.back();

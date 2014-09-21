@@ -2,8 +2,8 @@
 
 var express = require('express'),
     path = require('path'),
-    routes = require('./routes'),
-    config = require('./config'),
+    routes = require('./routes/index'),
+    config = require('./config/index'),
     lib = require('./common/lib'),
     debug = require('debug')('wheeladmin:server'),
     bodyParser = require('body-parser'),
