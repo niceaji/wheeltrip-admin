@@ -7,7 +7,7 @@
 * git clone git@github.com:niceaji/wheeltrip-admin.git
 * cd wheeltrip-admin
 * npm install
-* mysql -u {username} -p {database} < table.sql
+* mysql -u {username} -p {database} < script/table.sql
 * node server.js
 * open http://localhost:3333/admin
     * id:test ,password:test 로그인
