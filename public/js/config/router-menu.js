@@ -3,13 +3,13 @@ app.config(
         'use strict';
 
         $routeProvider
-            .when('/places/:page?', {
-                templateUrl: '/template/places-index.html',
-                controller: 'PlacesIndexCtrl'
-            })
             .when('/places/new', {
                 templateUrl: '/template/places-edit.html',
                 controller: 'PlacesNewCtrl'
+            })
+            .when('/places/:page?', {
+                templateUrl: '/template/places-index.html',
+                controller: 'PlacesIndexCtrl'
             })
             .when('/places/edit/:pid', {
                 templateUrl: '/template/places-edit.html',
