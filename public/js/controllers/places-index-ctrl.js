@@ -7,12 +7,14 @@ app.controller('PlacesIndexCtrl',
         $scope.$parent.hasNavbar = true;
 
         $scope.page = $routeParams.page || 1;
+        $scope.pages = [1,2,3,4,5,6,7,8,9,10];//일단;
 
         var limit = 50,
-            offset = ($scope.page - 1) * limit;
+            offset = ($scope.page - 1) * limit,
+            queryParams = {limit: limit, offset: offset};
 
 
-        Places.query({limit: limit, offset: offset}, function (places) {
+        Places.query(queryParams, function (places) {
             $scope.places = places;
         });
 
@@ -41,11 +43,26 @@ app.controller('PlacesIndexCtrl',
                 lng = place.longitude || '';
             $window.open('/daum-map/map.html#?lat=' + lat + '&lng=' + lng, '', 'width=1000,height=700');
         };
-        $scope.prev = function() {
-            $location.path('places/'+ (--$scope.page));
+        $scope.prev = function () {
+            $location.path('places/' + (--$scope.page));
         };
-        $scope.next= function() {
-            $location.path('places/'+ (++$scope.page));
+        $scope.next = function () {
+            $location.path('places/' + (++$scope.page));
         };
-    })
+        $scope.$watch('searchTitle', function () {
+
+            var param = {title:$scope.searchTitle};
+
+            if(typeof $scope.searchTitle === 'undefined' ) {
+                return;
+            }
+            else if($scope.searchTitle==='') {
+                param = _.clone(queryParams, param);
+
+            }
+            Places.query(param ,function (places) {
+                $scope.places = places;
+            });
+        })
+    });
 

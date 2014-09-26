@@ -8,6 +8,7 @@ var
 function index(req, res) {
 
     var options = {
+        title: req.param('title'),
         offset: parseInt(req.param('offset'), 10),
         limit: parseInt(req.param('limit'), 10)
     };

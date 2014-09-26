@@ -12,6 +12,8 @@ var mysqlMgr = require('../common/mysql-manager'),
 function create(place, callback) {
     var data = lib.safeMerge(model, place),
         sql = 'insert into LOCATIONS set ?';
+
+    data.editor  = 'admin';
     mysqlMgr.query(sql, [data], callback);
 }
 
@@ -22,11 +24,16 @@ function selectById(id, callback) {
 
 function selectAll(options, callback) {
 
-    var sql = 'select * from LOCATIONS order by id desc ';
+    var sql = 'select * from LOCATIONS ';
     var params = [];
 
     options = options || {};
 
+    if (options.title) {
+        sql += "where name like '%"+options.title+"%' ";
+        params.push(options.limit);
+    }
+    sql += 'order by id desc ';
     if (options.limit > 0) {
         sql += 'limit ? ';
         params.push(options.limit);

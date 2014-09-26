@@ -90,6 +90,12 @@
             placeholder: ''
         },
         {
+            key: 'opentime',
+            type: 'text',
+            label: '영업시간',
+            placeholder: ''
+        },
+        {
             key: 'category_name',
             type: 'select',
             label: '카테고리',
