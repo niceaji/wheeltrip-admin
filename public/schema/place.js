@@ -11,6 +11,23 @@
             description: ''
         },
         {
+            key: 'restroom',
+            type: 'radio',
+            label: '화장실여부',
+            default: '0',
+            options: [
+                {
+                    name: 'Yes',
+                    value: '1'
+                },
+                {
+                    name: 'No',
+                    value: '0'
+                }
+            ]
+
+        },
+        {
             key: 'addr',
 //            type: 'text',
             template: '<address-map></address-map>',
@@ -66,6 +83,7 @@
             label: '홈페이지',
             placeholder: 'http://'
         },
+
         {
             key: 'category_name',
             type: 'select',
