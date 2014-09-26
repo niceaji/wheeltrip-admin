@@ -6,7 +6,13 @@ var
     debug = require('debug')('wheeladmin:places');
 
 function index(req, res) {
-    dao.places.selectAll(function (err, rows) {
+
+    var options = {
+        offset: parseInt(req.param('offset'), 10),
+        limit: parseInt(req.param('limit'), 10)
+    };
+
+    dao.places.selectAll(options, function (err, rows) {
         res.json(rows);
     });
 }

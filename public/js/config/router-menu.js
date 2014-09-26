@@ -3,7 +3,7 @@ app.config(
         'use strict';
 
         $routeProvider
-            .when('/places', {
+            .when('/places/:page?', {
                 templateUrl: '/template/places-index.html',
                 controller: 'PlacesIndexCtrl'
             })

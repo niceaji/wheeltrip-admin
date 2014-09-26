@@ -51,7 +51,9 @@ body.map {
 
 .table-wrap .page-nav {
     text-align: center;
-    display: none;
+}
+.table-wrap .page-nav .page{
+    padding:0 10px;
 }
 
 .table th.icon {

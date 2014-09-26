@@ -20,9 +20,23 @@ function selectById(id, callback) {
     mysqlMgr.query(sql, [id], callback);
 }
 
-function selectAll( callback) {
-    var sql = 'select * from LOCATIONS order by id desc';// limit '+start+', '+listSize;
-    mysqlMgr.query(sql, [], callback);
+function selectAll(options, callback) {
+
+    var sql = 'select * from LOCATIONS order by id desc ';
+    var params = [];
+
+    options = options || {};
+
+    if (options.limit > 0) {
+        sql += 'limit ? ';
+        params.push(options.limit);
+    }
+    if (options.offset > 0) {
+        sql += 'offset ? ';
+        params.push(options.offset);
+    }
+
+    mysqlMgr.query(sql,params, callback);
 }
 
 function deleteById(id, callback) {

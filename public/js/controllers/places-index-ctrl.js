@@ -1,23 +1,25 @@
 'use strict';
 
 app.controller('PlacesIndexCtrl',
-    function ($scope, $location, $window, Places) {
+    function ($scope, $location, $window, $routeParams, Places) {
 
         $scope.$parent.nowMenu = 'places';
         $scope.$parent.hasNavbar = true;
 
-        //TODO. paging
-        var listSize = 100;
-        $scope.page = 1;
+        $scope.page = $routeParams.page || 1;
 
-        Places.query(function (places) {
+        var limit = 50,
+            offset = ($scope.page - 1) * limit;
+
+
+        Places.query({limit: limit, offset: offset}, function (places) {
             $scope.places = places;
         });
 
         $scope.edit = function (place) {
             $location.path('places/edit/' + place.id);
         };
-        $scope.add= function () {
+        $scope.add = function () {
             $location.path('places/new');
         };
         $scope.delete = function (place) {
@@ -34,10 +36,16 @@ app.controller('PlacesIndexCtrl',
             });
 
         };
-        $scope.popupMap = function(place) {
+        $scope.popupMap = function (place) {
             var lat = place.latitude || '',
                 lng = place.longitude || '';
-            $window.open('/daum-map/map.html#?lat='+lat+'&lng='+lng, '', 'width=1000,height=700');
+            $window.open('/daum-map/map.html#?lat=' + lat + '&lng=' + lng, '', 'width=1000,height=700');
+        };
+        $scope.prev = function() {
+            $location.path('places/'+ (--$scope.page));
+        };
+        $scope.next= function() {
+            $location.path('places/'+ (++$scope.page));
         };
     })
 

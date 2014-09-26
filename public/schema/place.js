@@ -83,7 +83,12 @@
             label: '홈페이지',
             placeholder: 'http://'
         },
-
+        {
+            key: 'phone',
+            type: 'text',
+            label: '전화번호',
+            placeholder: ''
+        },
         {
             key: 'category_name',
             type: 'select',
