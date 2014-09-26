@@ -15,7 +15,7 @@ app.directive('addressMap', function ($window) {
             $window.callbackMapWindow = function (lat, lng, content) {
                 scope.result.latitude = lat;
                 scope.result.longitude = lng;
-                scope.result.address = content;
+                scope.result.addr = content;
                 scope.$apply();
             };
 

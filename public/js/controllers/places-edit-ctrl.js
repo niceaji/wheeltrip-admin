@@ -21,11 +21,10 @@ app.controller('PlacesEditCtrl',
             submitCopy: '저장'
         };
 
-        $scope.countUploaedImage = function() {
-
-            return 1;
-
-        };
+//        $scope.countUploaedImage = function() {
+//            return 1;
+//
+//        };
 
         $scope.onSubmit = function () {
             console.log('onSubmit:', $scope.place);
