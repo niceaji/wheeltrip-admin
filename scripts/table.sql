@@ -36,5 +36,5 @@ INSERT INTO `places` (`id`, `name`, `latitude`, `longitude`, `image_0`, `image_1
 VALUES
 	(1,'성산일출봉','33.45006654566682','126.93684382623414','http://wheeltrip.net/images/1.jpeg','','','','','','','관광지','제주','제주특별자치도 서귀포시 성산읍','2014-09-21 16:40:39');
 
-insert into admins (userid, passwd) values ('test', md5('test'));
+insert into admins (userid, passwd) values ('admin', md5('test'));
 

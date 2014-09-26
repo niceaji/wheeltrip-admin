@@ -11,28 +11,29 @@ var mysqlMgr = require('../common/mysql-manager'),
 
 function create(place, callback) {
     var data = lib.safeMerge(model, place),
-        sql = 'insert into places set ?';
+        sql = 'insert into LOCATIONS set ?';
     mysqlMgr.query(sql, [data], callback);
 }
 
 function selectById(id, callback) {
-    var sql = 'select * from places where id=?';
+    var sql = 'select * from LOCATIONS where id=?';
     mysqlMgr.query(sql, [id], callback);
 }
 
 function selectAll( callback) {
-    var sql = 'select * from places order by id desc';// limit '+start+', '+listSize;
+    var sql = 'select * from LOCATIONS order by id desc';// limit '+start+', '+listSize;
     mysqlMgr.query(sql, [], callback);
 }
 
 function deleteById(id, callback) {
-    var sql = 'delete from places where id=?';
+    var sql = 'delete from LOCATIONS where id=?';
     mysqlMgr.query(sql, [id], callback);
 }
 
 function updateById(id, place, callback) {
-    var sql = 'update places set ? where id=?';
+    var sql = 'update LOCATIONS set ? where id=?';
     var data = lib.safeMerge(model, place);
+    data.updatedt = new Date();
     mysqlMgr.query(sql, [data, id], callback);
 }
 

@@ -11,7 +11,7 @@
             description: ''
         },
         {
-            key: 'address',
+            key: 'addr',
 //            type: 'text',
             template: '<address-map></address-map>',
             label: '주소'
@@ -31,27 +31,27 @@
             disabled: true
         },
         {
-            key: 'image_0',
+            key: 'image0',
             template: '<upload-btn></upload-btn>',
             label: '이미지1'
         },
         {
-            key: 'image_1',
+            key: 'image1',
             template: '<upload-btn></upload-btn>',
             label: '이미지2'
         },
         {
-            key: 'image_2',
+            key: 'image2',
             template: '<upload-btn></upload-btn>',
             label: '이미지3'
         },
         {
-            key: 'image_3',
+            key: 'image3',
             template: '<upload-btn></upload-btn>',
             label: '이미지4'
         },
         {
-            key: 'image_4',
+            key: 'image4',
             template: '<upload-btn></upload-btn>',
             label: '이미지5'
         },
@@ -67,7 +67,7 @@
             placeholder: 'http://'
         },
         {
-            key: 'category',
+            key: 'category_name',
             type: 'select',
             label: '카테고리',
             required: true,
@@ -107,7 +107,7 @@
             ]
         },
         {
-            key: 'area',
+            key: 'area_name',
             type: 'select',
             label: '지역',
             required: true,
