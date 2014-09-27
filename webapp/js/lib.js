@@ -1,3 +1,5 @@
+
+
 app.directive('daumMap',
     function ($rootScope, dmap) {
 
@@ -11,10 +13,7 @@ app.directive('daumMap',
             replace: true,
             template: '<div style="width:100%;height:100%;"></div>',
             link: function (scope, element) {
-
-
                 dmap.init(element[0], scope.lat, scope.lng, scope.level);
-
 //                dmap.putZoom();
 //                dmap.putMaptype();
             }

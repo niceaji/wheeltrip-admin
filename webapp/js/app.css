@@ -1,0 +1,51 @@
+html, body {
+    height: 100%;
+    /*overflow: hidden;*/
+}
+
+body {
+}
+
+.category-btn {
+    float: right;
+    margin-right: 10px;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.map .btn-wrap {
+    position: absolute;
+    z-index: 9999;
+    top: 60px;
+    right: 10px;
+}
+
+.category-wrap {
+    position: absolute;
+    z-index: 9999;
+    top: 40px;
+    right:0;
+    left:0;
+    margin: 20px;
+    opacity: 0.9;
+}
+.info-wrap {
+    position: absolute;
+    z-index: 9999;
+    top: 40px;
+    right:0;
+    left:0;
+    margin: 20px;
+    /*opacity: 0.9;*/
+}
+.info-wrap .close{
+    position: absolute;
+    right: 5px;
+    z-index: 99999;
+}
+

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="kr" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>동글락 여행</title>
+    <link rel="stylesheet" href="bs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/app.css">
+</head>
+<body ng-controller="BaseCtrl">
+<div class="map">
+    <daum-map level="7" lat="33.514969" lng="126.520927"></daum-map>
+    <div class="btn-wrap btn-group-vertical" ng-show="!openCategory && !selectedPlace">
+        <button class="btn btn-default plus" ng-click="zoomin()"><span class="glyphicon glyphicon-plus"></span></button>
+        <button class="btn btn-default minus" ng-click="zoomout()"><span class="glyphicon glyphicon-minus"></span>
+        </button>
+    </div>
+</div>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                동글락여행</a>
+            <button ng-click="openCategory=!openCategory" type="button"
+                    class="category-btn btn btn-default btn-primary btn-sm navbar-btn">
+                <span class="glyphicon glyphicon-folder-open"></span> 분류별 보기
+            </button>
+        </div>
+    </div>
+</div>
+<div class="category-wrap" ng-show="openCategory">
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="category in categorys">
+            <a href="#" ng-click="filterCategory(category)">{{category.name}}</a></li>
+    </ul>
+</div>
+<div class="info-wrap" ng-show="selectedPlace">
+    <button type="button" class="close" ng-click="selectedPlace=null">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <ul class="list-group">
+        <li class="list-group-item" >
+            {{selectedPlace.name}}
+            ({{selectedPlace.category_name}})</li>
+        <li class="list-group-item" ><a href="tel:{{selectedPlace.phone}}">{{selectedPlace.phone}}</a></li>
+        <li class="list-group-item" >{{selectedPlace.description}}</li>
+    </ul>
+</div>
+
+<script src="http://apis.daum.net/maps/maps3.js?apikey=747cb941765d07a671817527ddc1d54d8608841c"
+        charset="utf-8"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/lib.js"></script>
+</body>
+</html>

@@ -13,7 +13,7 @@
 
 <div class="search-ctrl" ng-controller="SearchCtrl">
     <form ng-submit="searchAddr()">
-    <div class="input-group " ng-class="{'has-error':hasError}">
+        <div class="input-group " ng-class="{'has-error':hasError}">
             <input type="text" class="form-control" ng-model="query" placeholder="주소만 검색이 됩니다">
             <span class="delete glyphicon glyphicon-remove"
                   ng-show="isResult" ng-click="deleteResult()"></span>
@@ -22,7 +22,7 @@
                     <span class="glyphicon glyphicon-search"></span>
                 </button>
             </span>
-    </div>
+        </div>
     </form>
     <ul class="result list-unstyled" ng-show="isResult">
         <li ng-repeat="item in items" ng-click="moveMap(item)">
@@ -34,14 +34,13 @@
 
 <div class="info-ctrl" ng-controller="InfoCtrl">
     <div class="content" ng-show="content">
-    <span class="glyphicon glyphicon-map-marker"></span>
-    {{ content }}
-    <button ng-show="hasOpener" class="btn btn-success btn-xs" ng-click="select()">
-        <span class="glyphicon glyphicon-ok"></span>선택
-    </button>
+        <span class="glyphicon glyphicon-map-marker"></span>
+        {{ content }}
+        <button ng-show="hasOpener" class="btn btn-success btn-xs" ng-click="select()">
+            <span class="glyphicon glyphicon-ok"></span>선택
+        </button>
     </div>
 </div>
-
 
 
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
