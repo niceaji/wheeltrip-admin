@@ -12,22 +12,20 @@ var app = angular.module('app', ["ngRoute"]);
 //    });
 
 app.controller('BaseCtrl',
-    function ($scope, $http,$window, dmap) {
+    function ($scope, $http, $window, dmap) {
 
         $scope.openCategory = false;
         $scope.categorys = [
             { name: '모두보기' },
-            { name: '휠체어' },
-            { name: '충전' },
-            { name: '관광지' },
-            { name: '화장실' },
-            { name: '식당' },
-            { name: '숙박' },
-            { name: '병원' },
-            { name: '복지' }
+            { name: '휠체어', icon: 'wheel' },
+            { name: '충전', icon: 'charge' },
+            { name: '관광지', icon: 'tourist' },
+            { name: '화장실', icon: 'restroom'},
+            { name: '식당', icon: 'food' },
+            { name: '숙박', icon: 'house' },
+            { name: '병원', icon: 'hospital' },
+            { name: '복지', icon: 'help' }
         ];
-
-
 
 
         function getGeolocation() {
@@ -38,9 +36,13 @@ app.controller('BaseCtrl',
                 });
             }
         }
+
         function putMarker() {
             $scope.places.forEach(function (place) {
-                place.marker = dmap.putMarker(place.latitude, place.longitude);
+                var arr= _.where($scope.categorys, {name: place.category_name}),
+                    icon = arr.length > 0 ? arr[0].icon : '';
+
+                place.marker = dmap.putMarker(place.latitude, place.longitude, icon);
 
                 $window.daum.maps.event.addListener(place.marker, 'click', function () {
                     $scope.selectedPlace = place;
@@ -48,6 +50,7 @@ app.controller('BaseCtrl',
                 });
             });
         }
+
         function loadPlacesData() {
             $http.get('data.json')
                 .success(function (data) {
@@ -68,10 +71,10 @@ app.controller('BaseCtrl',
         };
         $scope.filterCategory = function (category) {
 
-            $scope.openCategory =false;
+            $scope.openCategory = false;
 
             $scope.places.forEach(function (place) {
-                if(category.name ==='모두보기' || place.category_name === category.name) {
+                if (category.name === '모두보기' || place.category_name === category.name) {
                     place.marker.setVisible(true);
                 }
                 else {
@@ -82,8 +85,8 @@ app.controller('BaseCtrl',
 
 
         $scope.$watch('openCategory', function () {
-            if($scope.openCategory){
-               $scope.selectedPlace=null;
+            if ($scope.openCategory) {
+                $scope.selectedPlace = null;
             }
         })
     });

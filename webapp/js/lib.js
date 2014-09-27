@@ -46,14 +46,15 @@ app.factory('dmap', function ($window) {
             var mapTypeControl = new maps.MapTypeControl();
             map.addControl(mapTypeControl, maps.ControlPosition.TOPRIGHT);
         },
-        putMarker: function (lat, lng) {
-//            var img = 'http://i1.daumcdn.net/dmaps/apis/n_local_blit_04.png';
-//            var imageSize = new daum.maps.Size(16, 16);
-//            var markerImage = new daum.maps.MarkerImage(img, imageSize);
+        putMarker: function (lat, lng, icon) {
+            var img = 'http://wheeltrip.net/images/icon_local_'+ (icon || 'tourist') + '.png';
+            var imageSize = new daum.maps.Size(45, 38);
+            var markerImage = new daum.maps.MarkerImage(img, imageSize);
 
             var marker = new daum.maps.Marker({
+                image:markerImage,
                 position: new daum.maps.LatLng(lat, lng)
-//                image:markerImage
+
             });
             marker.setMap(map);
 
