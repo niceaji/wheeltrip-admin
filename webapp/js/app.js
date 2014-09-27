@@ -79,6 +79,13 @@ app.controller('BaseCtrl',
                 }
             });
         };
+
+
+        $scope.$watch('openCategory', function () {
+            if($scope.openCategory){
+               $scope.selectedPlace=null;
+            }
+        })
     });
 app.controller('MainCtrl',
     function ($scope, $http, $routeParams, dmap) {

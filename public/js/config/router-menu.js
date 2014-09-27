@@ -19,6 +19,10 @@ app.config(
                 templateUrl: '/template/comments-index.html',
                 controller: 'CommentsIndexCtrl'
             })
+            .when('/asks/:page?', {
+                templateUrl: '/template/asks-index.html',
+                controller: 'AsksIndexCtrl'
+            })
             .
             otherwise({ redirectTo: '/'});
 

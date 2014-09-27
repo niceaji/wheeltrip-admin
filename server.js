@@ -42,6 +42,12 @@ function defineRouter() {
         .put('/api/comments/:cid', auth, routes.api.comments.update)
         .delete('/api/comments/:cid', auth, routes.api.comments.destroy)
 
+        .get('/api/asks', auth, routes.api.asks.index)
+        .get('/api/asks/:aid', auth, routes.api.asks.show)
+        .post('/api/asks', auth, routes.api.asks.create)
+        .put('/api/asks/:aid', auth, routes.api.asks.update)
+        .delete('/api/comments/:aid', auth, routes.api.asks.destroy)
+
     return router;
 }
 

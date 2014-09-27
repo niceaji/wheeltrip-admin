@@ -20,7 +20,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href=".">
                 <span class="glyphicon glyphicon-map-marker"></span>
                 동글락여행</a>
             <button ng-click="openCategory=!openCategory" type="button"
@@ -33,7 +33,11 @@
 <div class="category-wrap" ng-show="openCategory">
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="category in categorys">
-            <a href="#" ng-click="filterCategory(category)">{{category.name}}</a></li>
+            <a href="#" ng-click="filterCategory(category)">
+                <span class="glyphicon glyphicon-asterisk" ng-show="$first"></span>
+                {{category.name}}
+            </a>
+        </li>
     </ul>
 </div>
 <div class="info-wrap" ng-show="selectedPlace">
@@ -44,7 +48,8 @@
         <li class="list-group-item" >
             {{selectedPlace.name}}
             ({{selectedPlace.category_name}})</li>
-        <li class="list-group-item" ><a href="tel:{{selectedPlace.phone}}">{{selectedPlace.phone}}</a></li>
+        <li class="list-group-item" ng-show="selectedPlace.phone">
+            <a href="tel:{{selectedPlace.phone}}">{{selectedPlace.phone}}</a></li>
         <li class="list-group-item" >{{selectedPlace.description}}</li>
     </ul>
 </div>

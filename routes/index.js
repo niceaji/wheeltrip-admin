@@ -55,6 +55,7 @@ module.exports = {
 
     api: {
         places: require('./api/places'),
+        asks: require('./api/asks'),
         comments: require('./api/comments')
     }
 };
