@@ -54,7 +54,8 @@ module.exports = {
     checkLogin: checkLogin,
 
     api: {
-        places: require('./api/places')
+        places: require('./api/places'),
+        comments: require('./api/comments')
     }
 };
 

@@ -34,6 +34,11 @@
             label: '주소'
         },
         {
+            key: 'deleted',
+            type: 'hidden',
+            lable: '삭제여부'
+        },
+        {
             key: 'latitude',
             type: 'text',
             label: '위도',

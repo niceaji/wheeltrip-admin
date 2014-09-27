@@ -15,7 +15,7 @@ app.config(
                 templateUrl: '/template/places-edit.html',
                 controller: 'PlacesEditCtrl'
             })
-            .when('/comment', {
+            .when('/comments/:page?', {
                 templateUrl: '/template/comments-index.html',
                 controller: 'CommentsIndexCtrl'
             })

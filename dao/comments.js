@@ -1,39 +1,40 @@
 'use strict';
 
-/** @module dao/places */
+/** @module dao/comments */
 
 var mysqlMgr = require('../common/mysql-manager'),
     lib = require('../common/lib'),
     _ = require('lodash'),
-    schema = require('../public/schema/place'),
+    schema = require('../public/schema/comment'),
     model = lib.schema2model(schema);
 
 
 function create(place, callback) {
     var data = lib.safeMerge(model, place),
-        sql = 'insert into LOCATIONS set ?';
+        sql = 'insert into COMMENTS set ?';
 
     data.editor  = 'admin';
     mysqlMgr.query(sql, [data], callback);
 }
 
 function selectById(id, callback) {
-    var sql = 'select * from LOCATIONS where id=?';
+    var sql = 'select * from COMMENTS where id=?';
     mysqlMgr.query(sql, [id], callback);
 }
 
 function selectAll(options, callback) {
 
-    var sql = "select * from LOCATIONS where deleted  is null ";
+    var sql = "select c.id,c.editor,c.content,c.updatedt,c.score,l.id as place_id, l.name " +
+        "from COMMENTS c, LOCATIONS l where c.location_id=l.id  ";
     var params = [];
 
     options = options || {};
 
     if (options.title) {
-        sql += "and name like '%"+options.title+"%' ";
+        sql += "and c.content like '%"+options.title+"%' ";
         params.push(options.limit);
     }
-    sql += 'order by id desc ';
+    sql += 'order by c.id desc ';
     if (options.limit > 0) {
         sql += 'limit ? ';
         params.push(options.limit);
@@ -47,12 +48,12 @@ function selectAll(options, callback) {
 }
 
 function deleteById(id, callback) {
-    var sql = 'delete from LOCATIONS where id=?';
+    var sql = 'delete from COMMENTS where id=?';
     mysqlMgr.query(sql, [id], callback);
 }
 
 function updateById(id, place, callback) {
-    var sql = 'update LOCATIONS set ? where id=?';
+    var sql = 'update COMMENTS set ? where id=?';
     var data = lib.safeMerge(model, place);
     data.updatedt = new Date();
     mysqlMgr.query(sql, [data, id], callback);

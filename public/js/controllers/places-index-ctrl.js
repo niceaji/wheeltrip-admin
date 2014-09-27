@@ -29,13 +29,24 @@ app.controller('PlacesIndexCtrl',
             if (!confirm('정말 삭제하시겠습니까?')) {
                 return;
             }
-            place.$delete(function () {
+            // deleted  만 1로 update
+
+            place.deleted = '1';
+            place.$update({id:place.id},function() {
                 $scope.places.forEach(function (item, index) {
                     if (item.id === place.id) {
                         $scope.places.splice(index, 1);
                     }
                 });
             });
+
+//            place.$delete(function () {
+//                $scope.places.forEach(function (item, index) {
+//                    if (item.id === place.id) {
+//                        $scope.places.splice(index, 1);
+//                    }
+//                });
+//            });
 
         };
         $scope.popupMap = function (place) {

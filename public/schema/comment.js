@@ -28,7 +28,7 @@
             exports = module.exports = schema;
         }
     } else {
-        root.schema['place'] = schema;
+        root.schema['comment'] = schema;
     }
 }.call(this));
 

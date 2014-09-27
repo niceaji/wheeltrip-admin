@@ -1,4 +1,38 @@
 <div class="table-wrap">
 
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>장소명</th>
+            <th>작성자</th>
+            <th>평가</th>
+            <th>내용</th>
+            <th>작성일</th>
+            <th class="icon"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="comment in comments">
+            <td>{{ comment.id }}</td>
+            <td>{{ comment.name }}</td>
+            <td>{{ comment.editor }}</td>
+            <td>
+                <star-score ng-model="comment.score"></star-score>
+            </td>
+            <td>{{ comment.content }}</td>
+            <td>{{ comment.updatedt| date:'yyyy-MM-dd HH:mm' }}</td>
+            <td>
+                <!--<button type="button" class="btn btn-xs btn-default" title="수정" ng-click="edit(comment)">-->
+                <!--<span class="glyphicon glyphicon-pencil"></span></button>-->
+                <button type="button" class="btn btn-danger btn-xs" title="삭제" ng-click="delete(comment)">
+                    <span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
+    <ul class="pagination" ng-hide="searchTitle">
+        <li ng-repeat="p in pages" ng-class="{active:p==page}"><a href="#/comments/{{p}}">{{ p }}</a></li>
+    </ul>
 </div>

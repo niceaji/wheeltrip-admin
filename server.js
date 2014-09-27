@@ -18,7 +18,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
-
 function defineRouter() {
 
     var
@@ -37,6 +36,12 @@ function defineRouter() {
         .put('/api/places/:pid', auth, routes.api.places.update)
         .delete('/api/places/:pid', auth, routes.api.places.destroy)
 
+        .get('/api/comments', auth, routes.api.comments.index)
+        .get('/api/comments/:cid', auth, routes.api.comments.show)
+        .post('/api/comments', auth, routes.api.comments.create)
+        .put('/api/comments/:cid', auth, routes.api.comments.update)
+        .delete('/api/comments/:cid', auth, routes.api.comments.destroy)
+
     return router;
 }
 
@@ -47,11 +52,11 @@ function start() {
 }
 function session() {
     app.use(cookieParser());
-    app.use(expressSession({secret:config.appName}));
+    app.use(expressSession({secret: config.appName}));
 }
 function auth(req, res, next) {
 
-    if(!lib.isLogged(req.session)) {
+    if (!lib.isLogged(req.session)) {
         res.redirect(config.urlPrefix);
         return;
     }
