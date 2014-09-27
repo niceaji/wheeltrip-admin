@@ -24,7 +24,7 @@ function selectById(id, callback) {
 
 function selectAll(options, callback) {
 
-    var sql = "select * from LOCATIONS where deleted  is null ";
+    var sql = "select * from LOCATIONS where deleted  != '1' ";
     var params = [];
 
     options = options || {};

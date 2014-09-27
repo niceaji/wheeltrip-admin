@@ -21,9 +21,6 @@
 * http://wheeltrip.net/daum-map/
     * https://github.com/niceaji/daum-map
 
-## 업로드 이미지 URL
-
-* http://wheeltrip.net/images/DSC_9853%20%281%29.JPG
 
 [1]:http://nodejs.org/
 [2]:https://www.angularjs.org/
