@@ -14,6 +14,7 @@ function create(place, callback) {
         sql = 'insert into LOCATIONS set ?';
 
     data.editor  = 'admin';
+    data.deleted = '0';
     mysqlMgr.query(sql, [data], callback);
 }
 

@@ -3,6 +3,11 @@
 module.exports = {
 
     env: 'development',
-    checkSession: false
-
+    checkSession: false,
+    mysql: {
+        host: 'wheeltrip.net',
+        user: 'beautiful',
+        password: 'beautiful_2014',
+        database: 'beautiful_stage'
+    }
 };

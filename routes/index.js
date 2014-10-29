@@ -19,7 +19,6 @@ function index(req, res) {
     });
 }
 function logout(req, res) {
-
     req.session.userid = '';
     res.redirect(config.urlPrefix);
 }
