@@ -28,6 +28,23 @@
 
         },
         {
+            key: 'wheelchair',
+            type: 'radio',
+            label: '휠체어여부',
+            default: '0',
+            options: [
+                {
+                    name: 'Yes',
+                    value: '1'
+                },
+                {
+                    name: 'No',
+                    value: '0'
+                }
+            ]
+
+        },
+        {
             key: 'addr',
 //            type: 'text',
             template: '<address-map></address-map>',

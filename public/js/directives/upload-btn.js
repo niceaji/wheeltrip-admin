@@ -18,6 +18,12 @@ app.directive('uploadBtn', function ($window) {
                     };
                 })(scope);
             };
+            scope.delete = function() {
+
+                //console.log(scope.options.key)
+                scope.result[scope.options.key] = '';
+            };
+
 
         }
     };
